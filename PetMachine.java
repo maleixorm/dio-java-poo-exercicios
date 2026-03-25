@@ -1,8 +1,12 @@
 public class PetMachine {
-    private boolean clean;
-    private int water;
-    private int shampoo;
+    private boolean clean = true;
+    private int water = 30;
+    private int shampoo = 10;
     private Pet pet;
+
+    public PetMachine() {
+
+    }
 
     public void takeAShower() {
         if (this.pet == null){
@@ -16,7 +20,7 @@ public class PetMachine {
     }
 
     public void addWater() {
-        if (water == 30) {
+        if (water >= 30) {
             System.out.println("A capacidade máxima de água da máquina foi atingida.");
             return;
         }
@@ -24,7 +28,7 @@ public class PetMachine {
     }
 
     public void addShampoo() {
-        if (shampoo == 10) {
+        if (shampoo >= 10) {
             System.out.println("A capacidade máxima de shampoo da máquina foi atingida.");
             return;
         }
@@ -56,7 +60,7 @@ public class PetMachine {
 
     public void removePet() {
         this.clean = this.pet.isClean();
-        System.out.println("O pet " + this.pet.getName() + " está limpo.");
+        System.out.println("O pet " + this.pet.getName() + " foi retirado da máquina.");
         this.pet = null;
     }
 
@@ -64,6 +68,6 @@ public class PetMachine {
         this.water -= 3;
         this.shampoo -= 1;
         this.clean = true;
-        System.out.println("A máquina está limpa!");
+        System.out.println("A máquina foi limpa!");
     }
 }
